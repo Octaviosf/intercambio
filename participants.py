@@ -6,6 +6,19 @@ import os.path
 
 def init_list():
 	""" initialize list of participants """
+	members = []
+
+	print('Enter name of participant and numerical ID.\nWhen finished enter \'quit now\'.')
+	name, NID = input('name NID: ').split()
+
+	while name != 'quit':
+		members.append([name, NID])
+		name, NID = input('name NID: ').split()
+
+	members = pd.DataFrame(members, columns = ['Name', 'NID'])
+
+	print(members)
+	return members
 
 def existence(file_path):
 	"""
@@ -36,16 +49,6 @@ if file_exists:
 	participants = pd.read_csv(
 
 # Initialize via user input
-fam = []
-
-print('Enter name of member and numerical ID.\nWhen finished enter \'quit now\'.')
-
-member, NID = input('member_name, NID: ').split()
-
-while member != 'quit':
-	fam.append([member, NID])
-	member, NID = input('member_name, NID: ').split()
-
 print(fam)
 
 
