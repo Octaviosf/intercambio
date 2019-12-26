@@ -2,8 +2,11 @@
 Problem:
     Randomly pair person A with person B where A and B are not the same.
 """
+import pandas as pd
+from members_list import members_list
 
-# Load a list of dictionaries for all participants [(NID1: "name1"), (NID2: "name2"), ...] 
+# load members dataframe
+members = members_list()
 
 #
 
