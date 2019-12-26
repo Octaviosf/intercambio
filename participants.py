@@ -40,9 +40,10 @@ def members_list():
 		file_ = existence(path)
 		if not file_:
 			print('file-path incorrect.')
-
-		members = pd.read_csv(path)
-		print(members.to_string())
+		elif file_:
+			members = pd.read_csv(path)
+			print(members.to_string())
+			break
 
 	# create list
 	if file_ == 'n':
