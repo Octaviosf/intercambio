@@ -1,14 +1,14 @@
 """
-Create list of participants
+Create list of members
 """
 import pandas as pd
 import os.path 
 
 def init_list():
-	""" initialize list of participants """
+	""" initialize list of members """
 	members = []
 
-	print('Enter name of participant and numerical ID.\nWhen finished enter \'quit now\'.')
+	print('Enter name of member and numerical ID.\nWhen finished enter \'quit now\'.')
 	name, NID = input('name NID: ').split()
 
 	while name != 'quit':
@@ -17,7 +17,8 @@ def init_list():
 
 	members = pd.DataFrame(members, columns = ['Name', 'NID'])
 
-	print(members)
+	members.to_csv('members.csv', index=False)
+
 	return members
 
 def existence(file_path):
@@ -28,29 +29,26 @@ def existence(file_path):
 	file_ = os.path.isfile(file_path)
 	return file_
 
-# check for existence of participants list
-file_ = input('Does participants file exist? (y or n): ')
+def members_list():
 
-while file_ == False or file_ == 'y':
-	path = input('Enter file-path: ')
-	file_ = existence(path)
-	if not file_:
-		print('file-path incorrect.')
+	# check for existence of members list
+	file_ = input('Does members file exist? (y or n): ')
 
-	participants = pd.read_csv(path)
+	# read existing list
+	while file_ == False or file_ == 'y':
+		path = input('Enter file-path: ')
+		file_ = existence(path)
+		if not file_:
+			print('file-path incorrect.')
 
-if file_ == 'n':
-	participants = init_list()
-####
+		members = pd.read_csv(path)
+		print(members.to_string())
 
-filename = input('Enter filename of participants list
-file_exists = existence('~/programs/python/intercambio/participants.csv')
-if file_exists:
-	participants = pd.read_csv(
+	# create list
+	if file_ == 'n':
+		members = init_list()
+		print(members.to_string())
 
-# Initialize via user input
-print(fam)
+	return members
 
-
-
-
+members = members_list()	
