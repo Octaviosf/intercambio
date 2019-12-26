@@ -15,7 +15,7 @@ def init_list():
 	while name != 'quit':
 		# create random number
 		rand_num = random.randrange(1, 99)
-		members.append([name, int(NID), (rand_num*NID)%100])
+		members.append([name, int(NID), (rand_num*int(NID))%100])
 		name, NID = input('name NID: ').split()
 
 	members = pd.DataFrame(members, columns = ['Name', 'NID', 'RID'])
