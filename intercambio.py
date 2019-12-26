@@ -14,8 +14,8 @@ pairings = random_pair(members)
 pairings.reset_index(drop=True, inplace=True)
  
 print()
-print(pairings.to_string())
-print()
+print(pairings[pairings['receiver'] != 'Alex'].to_string())
+print('\n')
 
 # print giver of mine
 ready = input('If ready to see my giver, then enter y: ')
@@ -27,5 +27,5 @@ while ready != 'y':
 
 my_giver = pairings.loc[pairings['receiver'] == 'Alex']
 
-print('\n\nThe giver of Alex is:')
+print('\nThe giver of Alex is:')
 print(my_giver.to_string())
