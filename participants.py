@@ -4,21 +4,31 @@ Create list of participants
 import pandas as pd
 import os.path 
 
-def file_exists = existence(file_path):
+def init_list():
+	""" initialize list of participants """
+
+def existence(file_path):
 	"""
 	checks for existence of file
 	"""
 
-	file_exists = os.path.isfile()
-	return file_exists
+	file_ = os.path.isfile(file_path)
+	return file_
 
 # check for existence of participants list
-file_exists = input('Does participants file exist? (y or n): ')
-if file_exists:
-	path = input('Enter filepath: ')
+file_ = input('Does participants file exist? (y or n): ')
+
+while file_ == False or file_ == 'y':
+	path = input('Enter file-path: ')
+	file_ = existence(path)
+	if not file_:
+		print('file-path incorrect.')
+
 	participants = pd.read_csv(path)
-else:
+
+if file_ == 'n':
 	participants = init_list()
+####
 
 filename = input('Enter filename of participants list
 file_exists = existence('~/programs/python/intercambio/participants.csv')
