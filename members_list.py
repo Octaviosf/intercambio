@@ -3,6 +3,7 @@ Create list of members
 """
 import pandas as pd
 import os.path 
+import random as random
 
 def init_list():
 	""" initialize list of members """
@@ -12,10 +13,12 @@ def init_list():
 	name, NID = input('name NID: ').split()
 
 	while name != 'quit':
-		members.append([name, NID])
+		# create random number
+		rand_num = random.randrange(1, 99)
+		members.append([name, int(NID), (rand_num*NID)%100])
 		name, NID = input('name NID: ').split()
 
-	members = pd.DataFrame(members, columns = ['Name', 'NID'])
+	members = pd.DataFrame(members, columns = ['Name', 'NID', 'RID'])
 
 	members.to_csv('members.csv', index=False)
 
