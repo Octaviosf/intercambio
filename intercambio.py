@@ -13,6 +13,7 @@ members = members_list()
 pairings = random_pair(members)
 pairings.reset_index(drop=True, inplace=True)
  
+print()
 print(pairings.to_string())
 print()
 
