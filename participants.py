@@ -52,4 +52,4 @@ def members_list():
 
 	return members
 
-members = members_list()	
+# members = members_list()	
