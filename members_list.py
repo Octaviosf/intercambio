@@ -45,13 +45,11 @@ def members_list():
 			print('file-path incorrect.')
 		elif file_:
 			members = pd.read_csv(path)
-			print(members.to_string())
 			break
 
 	# create list
 	if file_ == 'n':
 		members = init_list()
-		print(members.to_string())
 
 	return members
 
